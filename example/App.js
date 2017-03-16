@@ -53,7 +53,6 @@ class App extends Component {
                     day: {fontSize: 15, textAlign: 'center',borderWidth:0},
                     title:{color:'white'},
                     weekendDayText:{color:'black'},
-                    weekendHeading:{color:'black'},
                     currentDayText:{color:'black'},
                     hasEventCircle:{backgroundColor:'red'},
                     eventIndicator:{backgroundColor:'#35C7A6',height:5,width:5,borderBottomLeftRadius:5,borderBottomRightRadius:5,borderTopLeftRadius:5,borderTopRightRadius:5},

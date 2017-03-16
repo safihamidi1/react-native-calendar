@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'center',
     marginVertical: 5,
-    color: '#cccccc',
+    color: 'white',
   },
   weekRow: {
     flexDirection: 'row',
