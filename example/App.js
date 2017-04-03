@@ -36,7 +36,7 @@ class App extends Component {
     this.state = {
       selectedDate: moment().format(),
       leaveStartDate: ['2017-04-01','2017-04-25'],
-      leaveEndDate: ['2017-04-04','2017-04-28'],
+      leaveEndDate: ['2017-04-05','2017-04-28'],
     };
   }
 
@@ -70,8 +70,8 @@ class App extends Component {
       onSwipePrev={this.onSwipePrev}    // Callback for back swipe event
       onTouchNext={this.onTouchNext}    // Callback for next touch event
       onTouchPrev={this.onTouchPrev}    // Callback for prev touch event
-      leaveStartDate={this.state.leaveStartDate[]}
-      leaveEndDate={this.state.leaveEndDate[]}
+      leaveStartDate={[this.state.leaveStartDate]}
+      leaveEndDate={[this.state.leaveEndDate]}
       scrollEnabled={true}              // False disables swiping. Default: False
       showControls={true}               // False hides prev/next buttons. Default: False
       showEventIndicators={true}        // False hides event indicators. Default:False
