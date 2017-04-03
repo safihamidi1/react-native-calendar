@@ -28,7 +28,7 @@ export default class Day extends Component {
     showEventIndicators: PropTypes.bool,
   }
 
-  dayCircleStyle = (isWeekend, isSelected, isToday,isLeaveStartDate,isLeaveEndDate, event) => {
+  dayCircleStyle = (isWeekend, isSelected, isToday,isLeaveStartDate,isLeaveEndDate, isInRange, event) => {
     const { customStyle } = this.props;
     const dayCircleStyle = [styles.dayCircleFiller, customStyle.dayCircleFiller];
 
@@ -91,6 +91,7 @@ export default class Day extends Component {
       isWeekend,
       isLeaveStartDate,
       isLeaveEndDate,
+      inInRange,
       isSelected,
       isToday,
       showEventIndicators,
@@ -107,7 +108,7 @@ export default class Day extends Component {
     : (
       <TouchableOpacity onPress={this.props.onPress}>
         <View style={[styles.dayButton, customStyle.dayButton]}>
-          <View style={this.dayCircleStyle(isWeekend, isSelected, isToday, isLeaveStartDate, isLeaveEndDate, event)}>
+          <View style={this.dayCircleStyle(isWeekend, isSelected, isToday, isLeaveStartDate, isLeaveEndDate, isInRange, event)}>
             <Text style={this.dayTextStyle(isWeekend, isSelected, isToday, event)}>{caption}</Text>
           </View>
           {showEventIndicators &&
