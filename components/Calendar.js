@@ -101,15 +101,9 @@ export default class Calendar extends Component {
     }
   }
   isDateInRange (curr, lsd, led) {
-    console.log('is date in range function');
-    console.log('curr',curr);
-    console.log('startDate',lsd);
-    console.log('endDate',led);
     if (curr > lsd && curr < led) {
-      console.log('return value true');
       return true;
     }
-      console.log('Return value false');
       return false;
   }
 

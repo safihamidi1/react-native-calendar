@@ -41,14 +41,14 @@ export default class Day extends Component {
     }
 
     if (isLeaveStartDate){
-      dayCircleStyle.push(styles.startDayWrapper);
+      dayCircleStyle.push(styles.startDayWrapper,customStyle.startDayWrapper);
     }
 
     if (isLeaveEndDate) {
-      dayCircleStyle.push(styles.endDayWrapper);
+      dayCircleStyle.push(styles.endDayWrapper,customStyle.endDayWrapper);
     }
     if (isInRange) {
-      dayCircleStyle.push(styles.inRangeDay);
+      dayCircleStyle.push(styles.inRangeDay,customStyle.inRangeDay);
     }
 
 
