@@ -103,8 +103,10 @@ export default class Calendar extends Component {
   isDateInRange (currentDate, startDate, endDate) {
     console.log('is date in range function');
     if (currentDate > startDate && currentDate < endDate) {
+      console.log('return value true');
       return true;
     }
+      console.log('Return value false');
       return false;
   }
 
@@ -212,7 +214,6 @@ export default class Calendar extends Component {
       leaveStartIndex = moment(leaveStartMoment).date() - 1,
       leaveEndIndex = moment(leaveEndMoment).date() - 1,
       selectedMonthIsArg = selectedMoment.isSame(argMoment, 'month');
-      console.log(argMoment);
     const events = (eventsMap !== null)
       ? eventsMap[argMoment.startOf('month').format()]
       : null;
