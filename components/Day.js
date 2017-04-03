@@ -33,7 +33,6 @@ export default class Day extends Component {
     const dayCircleStyle = [styles.dayCircleFiller, customStyle.dayCircleFiller];
 
     if (isSelected) {
-      console.log('Day js');
       if (isToday) {
         dayCircleStyle.push(styles.currentDayCircle, customStyle.currentDayCircle);
       } else {
@@ -42,7 +41,6 @@ export default class Day extends Component {
     }
 
     if (isLeaveStartDate){
-      console.log(isLeaveStartDate);
       dayCircleStyle.push(styles.startDayWrapper);
     }
 
@@ -83,7 +81,6 @@ export default class Day extends Component {
   }
 
   render() {
-    console.log('Render of Day');
     let { caption, customStyle } = this.props;
     const {
       filler,

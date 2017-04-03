@@ -102,6 +102,9 @@ export default class Calendar extends Component {
   }
   isDateInRange (currentDate, startDate, endDate) {
     console.log('is date in range function');
+    console.log('currentDate',currentDate);
+    console.log('startDate',startDate);
+    console.log('endDate',endDate);
     if (currentDate > startDate && currentDate < endDate) {
       console.log('return value true');
       return true;
@@ -266,7 +269,6 @@ export default class Calendar extends Component {
   }
 
   renderHeading() {
-    console.log('renderHeading');
     const headings = [];
     for (let i = 0; i < 7; i++) {
       const j = (i + this.props.weekStart) % 7;
@@ -328,8 +330,6 @@ export default class Calendar extends Component {
     const calendarDates = this.getMonthStack(this.state.currentMonthMoment);
     const eventDatesMap = this.prepareEventDates(this.props.eventDates, this.props.events);
     const numOfWeeks = getNumberOfWeeks(this.state.currentMonthMoment, this.props.weekStart);
-    console.log('In calendar Component');
-    console.log(this.props.leaveStartDate);
     return (
       <View style={[styles.calendarContainer, this.props.customStyle.calendarContainer]}>
         {this.renderTopBar()}
