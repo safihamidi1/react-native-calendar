@@ -236,7 +236,7 @@ export default class Calendar extends Component {
             isSelected={selectedMonthIsArg && (dayIndex === selectedIndex)}
             isLeaveStartDate={selectedMonthIsArg && (dayIndex === leaveStartIndex)}
             isLeaveEndDate={selectedMonthIsArg && (dayIndex === leaveEndIndex)}
-            isInRange={isDayInRange}
+            isInRange={selectedMonthIsArg && isDayInRange}
             event={events && events[dayIndex]}
             showEventIndicators={this.props.showEventIndicators}
             customStyle={this.props.customStyle}
