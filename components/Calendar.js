@@ -4,7 +4,7 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  View,
+  View,Alert,
 } from 'react-native';
 
 import Day from './Day';
@@ -323,6 +323,7 @@ export default class Calendar extends Component {
     return (
       <View style={[styles.calendarContainer, this.props.customStyle.calendarContainer]}>
         {this.renderTopBar()}
+        {Alert.alert('A')}
         {this.renderHeading(this.props.titleFormat)}
         {this.props.scrollEnabled ?
           <ScrollView
