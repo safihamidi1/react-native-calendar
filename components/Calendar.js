@@ -27,8 +27,6 @@ export default class Calendar extends Component {
   state = {
     currentMonthMoment: moment(this.props.startDate),
     selectedMoment: moment(this.props.selectedDate),
-    leaveStartMoment: moment(this.props.leaveStartDate),
-    leaveEndMoment: moment(this.props.leaveEndDate),
     rowHeight: null,
   };
 
@@ -220,11 +218,11 @@ export default class Calendar extends Component {
       const isoWeekday = (renderIndex + weekStart) % 7;
 
       if (dayIndex >= 0 && dayIndex < argMonthDaysCount) {
-        leaveStartMoment = moment(this.state.leaveStartMoment[dayIndex]),
-        leaveEndMoment = moment(this.state.leaveEndMoment[dayIndex]),
+        leaveStartMoment = moment(this.props.leaveStartDate[dayIndex]),
+        leaveEndMoment = moment(this.props.leaveEndDate[dayIndex]),
         leaveStartIndex = moment(leaveStartMoment).date() - 1,
         leaveEndIndex = moment(leaveEndMoment).date() - 1,
-        
+
         isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex,leaveEndIndex);
         days.push((
           <Day
