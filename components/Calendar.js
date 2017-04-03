@@ -100,12 +100,12 @@ export default class Calendar extends Component {
       this.setState({currentMonthMoment: moment(nextProps.currentMonth)});
     }
   }
-  isDateInRange (currentDate, startDate, endDate) {
+  isDateInRange (curr, lsd, led) {
     console.log('is date in range function');
-    console.log('currentDate',currentDate);
-    console.log('startDate',startDate);
-    console.log('endDate',endDate);
-    if (currentDate > startDate && currentDate < endDate) {
+    console.log('curr',curr);
+    console.log('startDate',lsd);
+    console.log('endDate',led);
+    if (curr > lsd && curr < led) {
       console.log('return value true');
       return true;
     }
@@ -198,6 +198,7 @@ export default class Calendar extends Component {
 
     let
       renderIndex = 0,
+      isDayInRange = false,
       weekRows = [],
       days = [],
       startOfArgMonthMoment = argMoment.startOf('month');
@@ -211,7 +212,6 @@ export default class Calendar extends Component {
       todayIndex = todayMoment.date() - 1,
       argMonthDaysCount = argMoment.daysInMonth(),
       offset = (startOfArgMonthMoment.isoWeekday() - weekStart + 7) % 7,
-      isDayInRange = this.isDateInRange(argMoment,leaveStartMoment,leaveEndMoment);
       argMonthIsToday = argMoment.isSame(todayMoment, 'month'),
       selectedIndex = moment(selectedMoment).date() - 1,
       leaveStartIndex = moment(leaveStartMoment).date() - 1,
@@ -226,6 +226,7 @@ export default class Calendar extends Component {
       const isoWeekday = (renderIndex + weekStart) % 7;
 
       if (dayIndex >= 0 && dayIndex < argMonthDaysCount) {
+        isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex,leaveEndIndex);
         days.push((
           <Day
             startOfMonth={startOfArgMonthMoment}
