@@ -85,6 +85,8 @@ export default class Day extends Component {
       filler,
       event,
       isWeekend,
+      isLeaveStartDate,
+      isLeaveEndDate,
       isSelected,
       isToday,
       showEventIndicators,
