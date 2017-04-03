@@ -102,19 +102,25 @@ const styles = StyleSheet.create({
   startDayWrapper: {
     borderTopLeftRadius: 14,
     borderBottomLeftRadius: 14,
+    borderTopRightRadius:0,
+    borderBottomRightRadius:0,
     backgroundColor: 'grey',
     alignSelf: 'center',
   },
   endDayWrapper: {
     borderTopRightRadius: 14,
     borderBottomRightRadius: 14,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
     backgroundColor: 'grey',
     alignSelf: 'center',
   },
     inRangeDay: {
-      width: 28,
-      height: 28,
-      backgroundColor: '#0065AC',
+      borderTopRightRadius: 0,
+      borderBottomRightRadius: 0,
+      borderTopLeftRadius: 0,
+      borderBottomLeftRadius: 0,
+      backgroundColor: 'grey',
       alignSelf: 'center',
     },
 });

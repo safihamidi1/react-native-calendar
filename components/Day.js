@@ -22,6 +22,7 @@ export default class Day extends Component {
     isToday: PropTypes.bool,
     isLeaveStartDate:PropTypes.bool,
     isLeaveEndDate:PropTypes.bool,
+    isInRange: PropTypes.bool,
     isWeekend: PropTypes.bool,
     onPress: PropTypes.func,
     showEventIndicators: PropTypes.bool,
@@ -46,6 +47,9 @@ export default class Day extends Component {
     }
 
     if (isLeaveEndDate) {
+      dayCircleStyle.push(styles.endDayWrapper);
+    }
+    if (inRangeDay) {
       dayCircleStyle.push(styles.endDayWrapper);
     }
 

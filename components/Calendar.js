@@ -4,7 +4,7 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  View,Alert,
+  View,
 } from 'react-native';
 
 import Day from './Day';
@@ -99,6 +99,12 @@ export default class Calendar extends Component {
     if (nextProps.currentMonth) {
       this.setState({currentMonthMoment: moment(nextProps.currentMonth)});
     }
+  }
+  isDateInRange (currentDate, startDate, endDate) {
+    if (currentDate > startDate && currentDate < endDate) {
+      return true;
+    }
+      return false;
   }
 
   getMonthStack(currentMonth) {
@@ -199,6 +205,7 @@ export default class Calendar extends Component {
       todayIndex = todayMoment.date() - 1,
       argMonthDaysCount = argMoment.daysInMonth(),
       offset = (startOfArgMonthMoment.isoWeekday() - weekStart + 7) % 7,
+      isDayInRange = this.isDateInRange(argMoment,leaveStartMoment,leaveEndMoment);
       argMonthIsToday = argMoment.isSame(todayMoment, 'month'),
       selectedIndex = moment(selectedMoment).date() - 1,
       leaveStartIndex = moment(leaveStartMoment).date() - 1,
@@ -227,6 +234,7 @@ export default class Calendar extends Component {
             isSelected={selectedMonthIsArg && (dayIndex === selectedIndex)}
             isLeaveStartDate={selectedMonthIsArg && (dayIndex === leaveStartIndex)}
             isLeaveEndDate={selectedMonthIsArg && (dayIndex === leaveEndIndex)}
+            isInRange={isDayInRange}
             event={events && events[dayIndex]}
             showEventIndicators={this.props.showEventIndicators}
             customStyle={this.props.customStyle}
@@ -323,7 +331,6 @@ export default class Calendar extends Component {
     return (
       <View style={[styles.calendarContainer, this.props.customStyle.calendarContainer]}>
         {this.renderTopBar()}
-        {Alert.alert('A')}
         {this.renderHeading(this.props.titleFormat)}
         {this.props.scrollEnabled ?
           <ScrollView
