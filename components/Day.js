@@ -20,6 +20,8 @@ export default class Day extends Component {
     event: PropTypes.object,
     isSelected: PropTypes.bool,
     isToday: PropTypes.bool,
+    isLeaveStartDate:PropTypes.bool,
+    isLeaveEndDate:PropTypes.bool,
     isWeekend: PropTypes.bool,
     onPress: PropTypes.func,
     showEventIndicators: PropTypes.bool,
@@ -30,12 +32,23 @@ export default class Day extends Component {
     const dayCircleStyle = [styles.dayCircleFiller, customStyle.dayCircleFiller];
 
     if (isSelected) {
+      console.log('Day js');
       if (isToday) {
         dayCircleStyle.push(styles.currentDayCircle, customStyle.currentDayCircle);
       } else {
         dayCircleStyle.push(styles.selectedDayCircle, customStyle.selectedDayCircle);
       }
     }
+
+    if (isLeaveStartDate){
+      console.log(leaveStartDate);
+      dayCircleStyle.push(styles.startDayWrapper);
+    }
+
+    if (isLeaveEndDate) {
+      dayCircleStyle.push(styles.startEndWrapper);
+    }
+
 
     if (event) {
       if (isSelected) {
@@ -66,6 +79,7 @@ export default class Day extends Component {
   }
 
   render() {
+    console.log('Render of Day');
     let { caption, customStyle } = this.props;
     const {
       filler,

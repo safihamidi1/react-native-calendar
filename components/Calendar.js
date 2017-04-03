@@ -27,6 +27,8 @@ export default class Calendar extends Component {
   state = {
     currentMonthMoment: moment(this.props.startDate),
     selectedMoment: moment(this.props.selectedDate),
+    leaveStartMoment: moment(this.props.leaveStartDate),
+    leaveEndMoment: moment(this.props.leaveEndDate),
     rowHeight: null,
   };
 
@@ -51,6 +53,8 @@ export default class Calendar extends Component {
     ]),
     scrollEnabled: PropTypes.bool,
     selectedDate: PropTypes.any,
+    leaveStartDate: PropTypes.any,
+    leaveEndDate: PropTypes.any,
     showControls: PropTypes.bool,
     showEventIndicators: PropTypes.bool,
     startDate: PropTypes.any,
@@ -72,6 +76,8 @@ export default class Calendar extends Component {
     showControls: false,
     showEventIndicators: false,
     startDate: moment().format('YYYY-MM-DD'),
+    leaveStartDate: '',
+    leaveEndDate: '',
     titleFormat: 'MMMM YYYY',
     today: moment(),
     weekStart: 1,
@@ -186,6 +192,8 @@ export default class Calendar extends Component {
 
     const
       selectedMoment = moment(this.state.selectedMoment),
+      leaveStartMoment = moment(this.state.leaveStartMoment),
+      leaveEndMoment = moment(this.state.leaveEndMoment),
       weekStart = this.props.weekStart,
       todayMoment = moment(this.props.today),
       todayIndex = todayMoment.date() - 1,
@@ -193,8 +201,10 @@ export default class Calendar extends Component {
       offset = (startOfArgMonthMoment.isoWeekday() - weekStart + 7) % 7,
       argMonthIsToday = argMoment.isSame(todayMoment, 'month'),
       selectedIndex = moment(selectedMoment).date() - 1,
+      leaveStartIndex = moment(leaveStartMoment).date() - 1,
+      leaveEndIndex = moment(leaveEndMoment).date() - 1,
       selectedMonthIsArg = selectedMoment.isSame(argMoment, 'month');
-
+      console.log(leaveStartIndex);
     const events = (eventsMap !== null)
       ? eventsMap[argMoment.startOf('month').format()]
       : null;
@@ -215,6 +225,8 @@ export default class Calendar extends Component {
             caption={`${dayIndex + 1}`}
             isToday={argMonthIsToday && (dayIndex === todayIndex)}
             isSelected={selectedMonthIsArg && (dayIndex === selectedIndex)}
+            isLeaveStartDate={selectedMonthIsArg && (dayIndex === leaveStartIndex)}
+            isLeaveEndDate={selectedMonthIsArg && (dayIndex === leaveEndIndex)}
             event={events && events[dayIndex]}
             showEventIndicators={this.props.showEventIndicators}
             customStyle={this.props.customStyle}
@@ -244,6 +256,7 @@ export default class Calendar extends Component {
   }
 
   renderHeading() {
+    console.log('renderHeading');
     const headings = [];
     for (let i = 0; i < 7; i++) {
       const j = (i + this.props.weekStart) % 7;
@@ -305,7 +318,8 @@ export default class Calendar extends Component {
     const calendarDates = this.getMonthStack(this.state.currentMonthMoment);
     const eventDatesMap = this.prepareEventDates(this.props.eventDates, this.props.events);
     const numOfWeeks = getNumberOfWeeks(this.state.currentMonthMoment, this.props.weekStart);
-
+    console.log('In calendar Component');
+    console.log(this.props.leaveStartDate);
     return (
       <View style={[styles.calendarContainer, this.props.customStyle.calendarContainer]}>
         {this.renderTopBar()}

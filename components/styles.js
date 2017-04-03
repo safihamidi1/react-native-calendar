@@ -99,6 +99,25 @@ const styles = StyleSheet.create({
   weekendDayText: {
     color: '#cccccc',
   },
+  startDayWrapper: {
+
+      borderTopLeftRadius: 14,
+      borderBottomLeftRadius: 14,
+      backgroundColor: 'grey',
+      alignSelf: 'center',
+    },
+    endDayWrapper: {
+      borderTopRightRadius: 14,
+      borderBottomRightRadius: 14,
+      backgroundColor: 'grey',
+      alignSelf: 'center',
+    },
+    inRangeDay: {
+      width: 28,
+      height: 28,
+      backgroundColor: '#0065AC',
+      alignSelf: 'center',
+    },
 });
 
 export default styles;

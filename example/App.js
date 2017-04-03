@@ -35,6 +35,8 @@ class App extends Component {
     super(props);
     this.state = {
       selectedDate: moment().format(),
+      leaveStartDate: '2017-04-01',
+      leaveEndDate: moment('2017-04-03').format('YYYY-MM-DD')
     };
   }
 
@@ -43,6 +45,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('Loading Calendar',this.state.leaveStartDate);
     return (
       <View style={styles.container}>
       <Calendar
@@ -67,7 +70,8 @@ class App extends Component {
       onSwipePrev={this.onSwipePrev}    // Callback for back swipe event
       onTouchNext={this.onTouchNext}    // Callback for next touch event
       onTouchPrev={this.onTouchPrev}    // Callback for prev touch event
-      
+      leaveStartDate={this.state.leaveStartDate}
+      leaveEndDate={this.state.leaveEndDate}
       scrollEnabled={true}              // False disables swiping. Default: False
       showControls={true}               // False hides prev/next buttons. Default: False
       showEventIndicators={true}        // False hides event indicators. Default:False
