@@ -47,9 +47,9 @@ const styles = StyleSheet.create({
   },
   dayButton: {
     alignItems: 'center',
-    padding: 5,
     width: DEVICE_WIDTH / 7,
     borderTopWidth: 1,
+    borderTopColor: 'white',
   },
   dayButtonFiller: {
     width: DEVICE_WIDTH / 7,
