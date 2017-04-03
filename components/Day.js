@@ -46,7 +46,7 @@ export default class Day extends Component {
     }
 
     if (isLeaveEndDate) {
-      dayCircleStyle.push(styles.startEndWrapper);
+      dayCircleStyle.push(styles.endDayWrapper);
     }
 
 

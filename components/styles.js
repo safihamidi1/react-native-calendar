@@ -78,13 +78,13 @@ const styles = StyleSheet.create({
     borderRadius: 14,
   },
   currentDayCircle: {
-    backgroundColor: 'red',
+    backgroundColor: '#ddd',
   },
   currentDayText: {
     color: 'red',
   },
   selectedDayCircle: {
-    backgroundColor: 'black',
+    backgroundColor: 'green',
   },
   hasEventCircle: {
   },
@@ -100,18 +100,17 @@ const styles = StyleSheet.create({
     color: '#cccccc',
   },
   startDayWrapper: {
-
-      borderTopLeftRadius: 14,
-      borderBottomLeftRadius: 14,
-      backgroundColor: 'grey',
-      alignSelf: 'center',
-    },
-    endDayWrapper: {
-      borderTopRightRadius: 14,
-      borderBottomRightRadius: 14,
-      backgroundColor: 'grey',
-      alignSelf: 'center',
-    },
+    borderTopLeftRadius: 14,
+    borderBottomLeftRadius: 14,
+    backgroundColor: 'grey',
+    alignSelf: 'center',
+  },
+  endDayWrapper: {
+    borderTopRightRadius: 14,
+    borderBottomRightRadius: 14,
+    backgroundColor: 'grey',
+    alignSelf: 'center',
+  },
     inRangeDay: {
       width: 28,
       height: 28,
