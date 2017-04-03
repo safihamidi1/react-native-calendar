@@ -36,7 +36,7 @@ class App extends Component {
     this.state = {
       selectedDate: moment().format(),
       leaveStartDate: moment('2017-04-01','YYYY-MM-DD').format(),
-      leaveEndDate: moment('2017-04-03','YYYY-MM-DD').format(),
+      leaveEndDate: moment('2017-04-05','YYYY-MM-DD').format(),
     };
   }
 

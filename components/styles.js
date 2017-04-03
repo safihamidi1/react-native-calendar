@@ -50,10 +50,8 @@ const styles = StyleSheet.create({
     padding: 5,
     width: DEVICE_WIDTH / 7,
     borderTopWidth: 1,
-    borderTopColor: '#e9e9e9',
   },
   dayButtonFiller: {
-    padding: 5,
     width: DEVICE_WIDTH / 7,
   },
   day: {
