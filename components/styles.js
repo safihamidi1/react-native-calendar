@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius:0,
     backgroundColor: 'grey',
     alignSelf: 'center',
+    width: DEVICE_WIDTH/7,
   },
   endDayWrapper: {
     borderTopRightRadius: 14,
@@ -112,6 +113,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 0,
     backgroundColor: 'grey',
     alignSelf: 'center',
+    width: DEVICE_WIDTH/7,
   },
     inRangeDay: {
       borderTopRightRadius: 0,
@@ -120,6 +122,7 @@ const styles = StyleSheet.create({
       borderBottomLeftRadius: 0,
       backgroundColor: 'grey',
       alignSelf: 'center',
+      width: DEVICE_WIDTH/7,
     },
 });
 
