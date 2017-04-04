@@ -70,8 +70,8 @@ class App extends Component {
       onSwipePrev={this.onSwipePrev}    // Callback for back swipe event
       onTouchNext={this.onTouchNext}    // Callback for next touch event
       onTouchPrev={this.onTouchPrev}    // Callback for prev touch event
-      leaveStartDate={this.state.leaveStartDate[0]}
-      leaveEndDate={this.state.leaveEndDate[0]}
+      leaveStartDate={this.state.leaveStartDate}
+      leaveEndDate={this.state.leaveEndDate}
       scrollEnabled={true}              // False disables swiping. Default: False
       showControls={true}               // False hides prev/next buttons. Default: False
       showEventIndicators={true}        // False hides event indicators. Default:False
