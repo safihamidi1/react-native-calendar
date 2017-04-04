@@ -222,7 +222,7 @@ export default class Calendar extends Component {
         leaveEndMoment = moment(this.props.leaveEndDate[dayIndex]),
         leaveStartIndex = moment(leaveStartMoment).date() - 1,
         leaveEndIndex = moment(leaveEndMoment).date() - 1,
-        console.log("jjjj",leaveStartMoment,leaveEndMoment,leaveStartIndex,leaveEndIndex,dayIndex);
+        console.log("jjjj",leaveStartMoment);
         isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex,leaveEndIndex);
         days.push((
           <Day
