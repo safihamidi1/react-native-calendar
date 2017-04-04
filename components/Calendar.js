@@ -53,8 +53,8 @@ export default class Calendar extends Component {
     ]),
     scrollEnabled: PropTypes.bool,
     selectedDate: PropTypes.any,
-    leaveStartDate: PropTypes.array,
-    leaveEndDate: PropTypes.array,
+    leaveStartDate: PropTypes.any,
+    leaveEndDate: PropTypes.any,
     showControls: PropTypes.bool,
     showEventIndicators: PropTypes.bool,
     startDate: PropTypes.any,
@@ -220,6 +220,7 @@ export default class Calendar extends Component {
       const isoWeekday = (renderIndex + weekStart) % 7;
 
       if (dayIndex >= 0 && dayIndex < argMonthDaysCount) {
+        console.log('leaveStartMoment',leaveStartMoment,'leaveEndMoment',leaveEndMoment,'leaveStartIndex',leaveStartIndex,'leaveEndIndex',leaveEndIndex);
         isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex,leaveEndIndex);
         days.push((
           <Day
