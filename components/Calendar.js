@@ -220,7 +220,6 @@ export default class Calendar extends Component {
       const isoWeekday = (renderIndex + weekStart) % 7;
 
       if (dayIndex >= 0 && dayIndex < argMonthDaysCount) {
-        console.log('leaveStartMoment',leaveStartMoment,'leaveEndMoment',leaveEndMoment,'leaveStartIndex',leaveStartIndex,'leaveEndIndex',leaveEndIndex);
         isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex,leaveEndIndex);
         days.push((
           <Day
