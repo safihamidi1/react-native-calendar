@@ -31,7 +31,7 @@ export default class Day extends Component {
   dayCircleStyle = (isWeekend, isSelected, isToday,isLeaveStartDate,isLeaveEndDate, isInRange, event) => {
     const { customStyle } = this.props;
     const dayCircleStyle = [styles.dayCircleFiller, customStyle.dayCircleFiller];
-
+    console.log('Day component',isLeaveStartDate,isLeaveEndDate);
     if (isSelected) {
       if (isToday) {
         dayCircleStyle.push(styles.currentDayCircle, customStyle.currentDayCircle);

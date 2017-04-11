@@ -102,8 +102,10 @@ export default class Calendar extends Component {
   }
   isDateInRange (curr, lsd, led) {
     if (curr > lsd && curr < led) {
+      console.log('isDateInRange returns true');
       return true;
     }
+      console.log('isDateInRange returns false');
       return false;
   }
 
@@ -224,7 +226,7 @@ export default class Calendar extends Component {
       leaveStartIndex = moment(this.props.leaveStartDate[0][this.state.startArrayIndex]).date() - 1;
       leaveEndIndex = moment(this.props.leaveEndDate[0][this.state.endArrayIndex]).date() - 1;
       console.log('dayindex',dayIndex);
-      console.log('leaveStartMoment',leaveStartMoment,'leaveStartDate curr',this.props.leaveStartDate[0][this.state.startArrayIndex]);
+      console.log('leaveStartDate curr',this.props.leaveStartDate[0][this.state.startArrayIndex]);
       console.log('startArrayIndex:',this.state.startArrayIndex,'endArrayIndex:',this.state.endArrayIndex,'leaveStartIndex:',leaveStartIndex,'leaveEndIndex:',leaveEndIndex);
       if (dayIndex >= 0 && dayIndex < argMonthDaysCount) {
         isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex[this.state.startArrayIndex],leaveEndIndex[this.state.endArrayIndex]);
