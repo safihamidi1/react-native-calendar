@@ -27,8 +27,6 @@ export default class Calendar extends Component {
   state = {
     currentMonthMoment: moment(this.props.startDate),
     selectedMoment: moment(this.props.selectedDate),
-    leaveStartDate: moment(this.props.leaveStartDate),
-    leaveEndDate: moment(this.props.leaveEndDate),
     startArrayIndex: 0,
     endArrayIndex: 0,
     rowHeight: null,
@@ -220,13 +218,13 @@ export default class Calendar extends Component {
     do {
       const dayIndex = renderIndex - offset;
       const isoWeekday = (renderIndex + weekStart) % 7;
-      leaveStartMoment = moment(this.state.leaveStartDate[this.state.startArrayIndex]);
-      leaveEndMoment = moment(this.state.leaveEndDate[this.state.endArrayIndex]);
-      leaveStartIndex = moment(leaveStartMoment).date() - 1;
-      leaveEndIndex = moment(leaveEndMoment).date() - 1;
-    //  console.log('dayindex',dayIndex);
-    //  console.log('leaveStartMoment',leaveStartMoment,'leaveStartDate',this.state.leaveStartDate);
-    //  console.log('startArrayIndex:',this.state.startArrayIndex,'endArrayIndex:',this.state.endArrayIndex,'leaveStartIndex:',leaveStartIndex,'leaveEndIndex:',leaveEndIndex);
+      //leaveStartMoment = moment(this.state.leaveStartDate[this.state.startArrayIndex]);
+      //leaveEndMoment = moment(this.state.leaveEndDate[this.state.endArrayIndex]);
+      leaveStartIndex = moment(this.props.leaveStartDate[0][this.state.startArrayIndex]).date() - 1;
+      leaveEndIndex = moment(this.props.leaveEndDate[0][this.state.endArrayIndex]).date() - 1;
+      console.log('dayindex',dayIndex);
+      console.log('leaveStartMoment',leaveStartMoment,'leaveStartDate',this.state.leaveStartDate);
+      console.log('startArrayIndex:',this.state.startArrayIndex,'endArrayIndex:',this.state.endArrayIndex,'leaveStartIndex:',leaveStartIndex,'leaveEndIndex:',leaveEndIndex);
       if (dayIndex >= 0 && dayIndex < argMonthDaysCount) {
         isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex[this.state.startArrayIndex],leaveEndIndex[this.state.endArrayIndex]);
         days.push((
@@ -267,7 +265,7 @@ export default class Calendar extends Component {
       }
       if (dayIndex === leaveStartIndex) {
         this.state.startArrayIndex++;
-    //    console.log(this.state.startArrayIndex);
+        console.log('incrementing sAI',this.state.startArrayIndex);
       }
       if (dayIndex === leaveEndIndex) {
         this.state.endArrayIndex++;
@@ -341,7 +339,7 @@ export default class Calendar extends Component {
     const calendarDates = this.getMonthStack(this.state.currentMonthMoment);
     const eventDatesMap = this.prepareEventDates(this.props.eventDates, this.props.events);
     const numOfWeeks = getNumberOfWeeks(this.state.currentMonthMoment, this.props.weekStart);
-    console.log('leaveStartDate',this.props.leaveStartDate,'first index',this.props.leaveStartDate[0][this.state.startArrayIndex],'first index with slice',this.props.leaveStartDate.slice()[0],'leaveStartDate from cons',moment(this.props.leaveStartDate[0][0]).date() - 1);
+    console.log('leaveStartDate',this.props.leaveStartDate,'start index',this.state.startArrayIndex,'first index',this.props.leaveStartDate[0][this.state.startArrayIndex],'first index with slice',this.props.leaveStartDate.slice()[0],'leaveStartDate from cons',moment(this.props.leaveStartDate[0][0]).date() - 1);
     return (
       <View style={[styles.calendarContainer, this.props.customStyle.calendarContainer]}>
         {this.renderTopBar()}
