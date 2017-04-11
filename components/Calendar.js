@@ -341,7 +341,7 @@ export default class Calendar extends Component {
     const calendarDates = this.getMonthStack(this.state.currentMonthMoment);
     const eventDatesMap = this.prepareEventDates(this.props.eventDates, this.props.events);
     const numOfWeeks = getNumberOfWeeks(this.state.currentMonthMoment, this.props.weekStart);
-    console.log('leaveStartDate',this.props.leaveStartDate,'leaveStartDate from cons',this.state.leaveStartDate);
+    console.log('leaveStartDate',this.props.leaveStartDate,'leaveStartDate from cons',moment(this.props.leaveStartDate[0]));
     return (
       <View style={[styles.calendarContainer, this.props.customStyle.calendarContainer]}>
         {this.renderTopBar()}
