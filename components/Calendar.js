@@ -220,16 +220,13 @@ export default class Calendar extends Component {
     do {
       const dayIndex = renderIndex - offset;
       const isoWeekday = (renderIndex + weekStart) % 7;
-      //leaveStartMoment = moment(this.state.leaveStartDate[this.state.startArrayIndex]);
-      //leaveEndMoment = moment(this.state.leaveEndDate[this.state.endArrayIndex]);
-      console.log('before assignment',moment(this.props.leaveStartDate[0][this.state.startArrayIndex]).date() - 1);
       leaveStartIndex = moment(this.props.leaveStartDate[0][this.state.startArrayIndex]).date() - 1;
       leaveEndIndex = moment(this.props.leaveEndDate[0][this.state.endArrayIndex]).date() - 1;
       console.log('dayindex',dayIndex);
       console.log('leaveStartDate curr',this.props.leaveStartDate[0][this.state.startArrayIndex]);
       console.log('startArrayIndex:',this.state.startArrayIndex,'endArrayIndex:',this.state.endArrayIndex,'leaveStartIndex:',leaveStartIndex,'leaveEndIndex:',leaveEndIndex);
       if (dayIndex >= 0 && dayIndex < argMonthDaysCount) {
-        isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex[this.state.startArrayIndex],leaveEndIndex[this.state.endArrayIndex]);
+        isDayInRange = this.isDateInRange(dayIndex,1,3);
         days.push((
           <Day
             startOfMonth={startOfArgMonthMoment}
@@ -241,8 +238,8 @@ export default class Calendar extends Component {
             caption={`${dayIndex + 1}`}
             isToday={argMonthIsToday && (dayIndex === todayIndex)}
             isSelected={selectedMonthIsArg && (dayIndex === selectedIndex)}
-            isLeaveStartDate={selectedMonthIsArg && (dayIndex == leaveStartIndex)}
-            isLeaveEndDate={selectedMonthIsArg && (dayIndex == leaveEndIndex)}
+            isLeaveStartDate={selectedMonthIsArg && (dayIndex === leaveStartIndex)}
+            isLeaveEndDate={selectedMonthIsArg && (dayIndex === leaveEndIndex)}
             isInRange={selectedMonthIsArg && isDayInRange}
             event={events && events[dayIndex]}
             showEventIndicators={this.props.showEventIndicators}
