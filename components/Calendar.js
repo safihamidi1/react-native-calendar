@@ -224,9 +224,9 @@ export default class Calendar extends Component {
       leaveEndMoment = moment(this.state.leaveEndDate[this.state.endArrayIndex]);
       leaveStartIndex = moment(leaveStartMoment).date() - 1;
       leaveEndIndex = moment(leaveEndMoment).date() - 1;
-      console.log('dayindex',dayIndex);
-      console.log('leaveStartMoment',leaveStartMoment,'leaveStartDate',this.state.leaveStartDate);
-      console.log('startArrayIndex:',this.state.startArrayIndex,'endArrayIndex:',this.state.endArrayIndex,'leaveStartIndex:',leaveStartIndex,'leaveEndIndex:',leaveEndIndex);
+    //  console.log('dayindex',dayIndex);
+    //  console.log('leaveStartMoment',leaveStartMoment,'leaveStartDate',this.state.leaveStartDate);
+    //  console.log('startArrayIndex:',this.state.startArrayIndex,'endArrayIndex:',this.state.endArrayIndex,'leaveStartIndex:',leaveStartIndex,'leaveEndIndex:',leaveEndIndex);
       if (dayIndex >= 0 && dayIndex < argMonthDaysCount) {
         isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex[this.state.startArrayIndex],leaveEndIndex[this.state.endArrayIndex]);
         days.push((
@@ -267,11 +267,11 @@ export default class Calendar extends Component {
       }
       if (dayIndex === leaveStartIndex) {
         this.state.startArrayIndex++;
-        console.log(this.state.startArrayIndex);
+    //    console.log(this.state.startArrayIndex);
       }
       if (dayIndex === leaveEndIndex) {
         this.state.endArrayIndex++;
-        console.log(this.state.endArrayIndex);
+    //    console.log(this.state.endArrayIndex);
       }
       renderIndex += 1;
     } while (true)
@@ -341,7 +341,7 @@ export default class Calendar extends Component {
     const calendarDates = this.getMonthStack(this.state.currentMonthMoment);
     const eventDatesMap = this.prepareEventDates(this.props.eventDates, this.props.events);
     const numOfWeeks = getNumberOfWeeks(this.state.currentMonthMoment, this.props.weekStart);
-    console.log('leaveStartDate',this.props.leaveStartDate,'leaveStartDate from cons',moment(this.props.leaveStartDate[0]));
+    console.log('leaveStartDate',this.props.leaveStartDate,'leaveStartDate from cons',moment(this.props.leaveStartDate[0]).date());
     return (
       <View style={[styles.calendarContainer, this.props.customStyle.calendarContainer]}>
         {this.renderTopBar()}
