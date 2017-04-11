@@ -27,8 +27,10 @@ export default class Calendar extends Component {
   state = {
     currentMonthMoment: moment(this.props.startDate),
     selectedMoment: moment(this.props.selectedDate),
-    leaveStartMoment: moment(this.props.leaveStartDate),
-    leaveEndMoment: moment(this.props.leaveEndDate),
+    leaveStartDate: moment(this.props.leaveStartDate),
+    leaveEndDate: moment(this.props.leaveEndDate),
+    startArrayIndex: 0,
+    endArrayIndex: 0,
     rowHeight: null,
   };
 
@@ -53,8 +55,8 @@ export default class Calendar extends Component {
     ]),
     scrollEnabled: PropTypes.bool,
     selectedDate: PropTypes.any,
-    leaveStartDate: PropTypes.any,
-    leaveEndDate: PropTypes.any,
+    leaveStartDate: PropTypes.array,
+    leaveEndDate: PropTypes.array,
     showControls: PropTypes.bool,
     showEventIndicators: PropTypes.bool,
     startDate: PropTypes.any,
@@ -76,8 +78,8 @@ export default class Calendar extends Component {
     showControls: false,
     showEventIndicators: false,
     startDate: moment().format('YYYY-MM-DD'),
-    leaveStartDate: '',
-    leaveEndDate: '',
+    leaveStartDate: [],
+    leaveEndDate: [],
     titleFormat: 'MMMM YYYY',
     today: moment(),
     weekStart: 1,
@@ -199,8 +201,6 @@ export default class Calendar extends Component {
 
     const
       selectedMoment = moment(this.state.selectedMoment),
-      leaveStartMoment = moment(this.state.leaveStartMoment),
-      leaveEndMoment = moment(this.state.leaveEndMoment),
       weekStart = this.props.weekStart,
       todayMoment = moment(this.props.today),
       todayIndex = todayMoment.date() - 1,
@@ -208,8 +208,6 @@ export default class Calendar extends Component {
       offset = (startOfArgMonthMoment.isoWeekday() - weekStart + 7) % 7,
       argMonthIsToday = argMoment.isSame(todayMoment, 'month'),
       selectedIndex = moment(selectedMoment).date() - 1,
-      leaveStartIndex = moment(leaveStartMoment).date() - 1,
-      leaveEndIndex = moment(leaveEndMoment).date() - 1,
       selectedMonthIsArg = selectedMoment.isSame(argMoment, 'month');
     const events = (eventsMap !== null)
       ? eventsMap[argMoment.startOf('month').format()]
@@ -218,9 +216,13 @@ export default class Calendar extends Component {
     do {
       const dayIndex = renderIndex - offset;
       const isoWeekday = (renderIndex + weekStart) % 7;
-
+      const leaveStartMoment = moment(this.state.leaveStartMoment[startArrayIndex]),
+      const leaveEndMoment = moment(this.state.leaveEndMoment[endArrayIndex]),
+      const leaveStartIndex = moment(leaveStartMoment).date() - 1,
+      const leaveEndIndex = moment(leaveEndMoment).date() - 1,
+      console.log('startArrayIndex:',startArrayIndex,'endArrayIndex:',endArrayIndex,'leaveStartIndex:',leaveStartIndex,'leaveEndIndex:',leaveEndIndex);
       if (dayIndex >= 0 && dayIndex < argMonthDaysCount) {
-        isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex,leaveEndIndex);
+        isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex[startArrayIndex],leaveEndIndex[endArrayIndex]);
         days.push((
           <Day
             startOfMonth={startOfArgMonthMoment}
@@ -256,6 +258,14 @@ export default class Calendar extends Component {
         if (dayIndex + 1 >= argMonthDaysCount) {
           break;
         }
+      }
+      if (dayIndex === leaveStartIndex) {
+        this.state.startArrayIndex++;
+        console.log(this.state.startArrayIndex);
+      }
+      if (dayIndex === leaveEndIndex) {
+        this.state.endArrayIndex++;
+        console.log(this.state.endArrayIndex);
       }
       renderIndex += 1;
     } while (true)
