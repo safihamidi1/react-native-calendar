@@ -220,10 +220,10 @@ export default class Calendar extends Component {
     do {
       const dayIndex = renderIndex - offset;
       const isoWeekday = (renderIndex + weekStart) % 7;
-      leaveStartMoment = moment(this.state.leaveStartDate[startArrayIndex]),
-      leaveEndMoment = moment(this.state.leaveEndDate[endArrayIndex]),
-      leaveStartIndex = moment(leaveStartMoment).date() - 1,
-      leaveEndIndex = moment(leaveEndMoment).date() - 1,
+      leaveStartMoment = moment(this.state.leaveStartDate[startArrayIndex]);
+      leaveEndMoment = moment(this.state.leaveEndDate[endArrayIndex]);
+      leaveStartIndex = moment(leaveStartMoment).date() - 1;
+      leaveEndIndex = moment(leaveEndMoment).date() - 1;
       console.log('startArrayIndex:',startArrayIndex,'endArrayIndex:',endArrayIndex,'leaveStartIndex:',leaveStartIndex,'leaveEndIndex:',leaveEndIndex);
       if (dayIndex >= 0 && dayIndex < argMonthDaysCount) {
         isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex[startArrayIndex],leaveEndIndex[endArrayIndex]);
