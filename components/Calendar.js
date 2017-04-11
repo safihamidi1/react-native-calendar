@@ -225,6 +225,10 @@ export default class Calendar extends Component {
       console.log('dayindex',dayIndex);
       console.log('leaveStartDate curr',this.props.leaveStartDate[0][this.state.startArrayIndex]);
       console.log('startArrayIndex:',this.state.startArrayIndex,'endArrayIndex:',this.state.endArrayIndex,'leaveStartIndex:',leaveStartIndex,'leaveEndIndex:',leaveEndIndex);
+      if (dayIndex < 0) {
+        this.state.startArrayIndex = 0;
+        this.state.endArrayIndex = 0;
+      }
       if (dayIndex >= 0 && dayIndex < argMonthDaysCount) {
         isDayInRange = this.isDateInRange(dayIndex,1,3);
         days.push((
