@@ -230,7 +230,7 @@ export default class Calendar extends Component {
         this.state.endArrayIndex = 0;
       }
       if (dayIndex >= 0 && dayIndex < argMonthDaysCount) {
-        isDayInRange = this.isDateInRange(dayIndex,1,3);
+        isDayInRange = this.isDateInRange(dayIndex,leaveStartIndex,leaveEndIndex);
         days.push((
           <Day
             startOfMonth={startOfArgMonthMoment}
