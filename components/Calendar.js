@@ -199,8 +199,8 @@ export default class Calendar extends Component {
       days = [],
       leaveStartMoment = [],
       leaveEndMoment = [],
-      leaveCacheStartIndex = '',
-      leaveCacheStartIndex = moment(this.props.leaveStartDate[0][0]).date() - 1;
+      leaveCacheStartIndex = moment(this.props.leaveStartDate[0][0]).date() - 1,
+      leaveStartIndex = '',
       leaveEndIndex = '',
       startOfArgMonthMoment = argMoment.startOf('month');
 
